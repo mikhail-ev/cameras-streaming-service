@@ -1,0 +1,26 @@
+{
+  "name": "camera-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "mjpeg-server": "^0.3.0",
+    "rxjs": "^6.6.3",
+    "zen-observable": "^0.8.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikhail-ev/esp32-cam-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mikhail-ev/esp32-cam-server/issues"
+  },
+  "homepage": "https://github.com/mikhail-ev/esp32-cam-server#readme"
+}
