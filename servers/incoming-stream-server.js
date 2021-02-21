@@ -41,6 +41,9 @@ function incomingStreamServer(streamsMap) {
         request.on('error', (err) => {
             log('error;', err)
         }).on('data', (chunk) => {
+            if (!request.url.slice(1) || isNaN(+request.url.slice(1))) {
+                return
+            }
             log(`Got frame for subject ${request.url}`)
             if (!streamsMap[request.url]) {
                 streamsMap[request.url] = utils.createSubject()

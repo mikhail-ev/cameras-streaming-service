@@ -6,7 +6,8 @@ const utils = require('../utils')
 function outgoingStreamServer(streamsMap) {
     return http.createServer(function(request, response) {
         if (!streamsMap[request.url]) {
-            streamsMap[request.url] = utils.createSubject()
+            response.statusCode = 404
+            return response.end()
         }
         const subject = streamsMap[request.url]
 
