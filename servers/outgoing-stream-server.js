@@ -5,10 +5,10 @@ const utils = require('../utils')
 
 function outgoingStreamServer(streamsMap) {
     return http.createServer(function(request, response) {
-        if (!streamsMap[request.path]) {
-            streamsMap[request.path] = utils.createSubject()
+        if (!streamsMap[request.url]) {
+            streamsMap[request.url] = utils.createSubject()
         }
-        const subject = streamsMap[request.path]
+        const subject = streamsMap[request.url]
 
         response.writeHead(200, {
             'Content-Type': 'multipart/x-mixed-replace; boundary=myboundary',

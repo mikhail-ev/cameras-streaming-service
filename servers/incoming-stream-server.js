@@ -41,14 +41,14 @@ function incomingStreamServer(streamsMap) {
         request.on('error', (err) => {
             log('error;', err)
         }).on('data', (chunk) => {
-            log(`Got frame for subject ${request.path}`)
-            if (!streamsMap[request.path]) {
-                streamsMap[request.path] = utils.createSubject()
+            log(`Got frame for subject ${request.url}`)
+            if (!streamsMap[request.url]) {
+                streamsMap[request.url] = utils.createSubject()
             }
-            if (!handlersMap[request.path]) {
-                handlersMap[request.path] = cameraIncomingStreamHandlerBuilder(streamsMap[request.path])
+            if (!handlersMap[request.url]) {
+                handlersMap[request.url] = cameraIncomingStreamHandlerBuilder(streamsMap[request.url])
             }
-            handlersMap[request.path](chunk)
+            handlersMap[request.url](chunk)
         });
     })
 }
