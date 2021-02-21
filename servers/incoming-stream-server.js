@@ -41,7 +41,7 @@ function incomingStreamServer(streamsMap) {
         request.on('error', (err) => {
             log('error;', err)
         }).on('data', (chunk) => {
-            log('Got frame')
+            log(`Got frame for subject ${request.path}`)
             if (!streamsMap[request.path]) {
                 streamsMap[request.path] = utils.createSubject()
             }
