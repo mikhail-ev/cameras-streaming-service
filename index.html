@@ -11,9 +11,17 @@
             width: 100%;
         }
     </style>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const streams = [%STREAMS%].sort()
+            streams.forEach((stream) => {
+                const img = document.createElement('img')
+                img.setAttribute('src', `${window.location.protocol}//${window.location.hostname}:8081${stream}`)
+                document.body.append(img)
+            })
+        })
+    </script>
 </head>
 <body>
-    <img src="http://localhost:8081/1"/>
-    <img src="http://localhost:8081/2"/>
 </body>
 </html>
