@@ -12,6 +12,10 @@ function outgoingStreamServer(streamsMap) {
         const subject = streamsMap[request.url]
 
         response.writeHead(200, {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Request-Method': '*',
+            'Access-Control-Allow-Methods': 'OPTIONS, GET',
+            'Access-Control-Allow-Headers': '*',
             'Content-Type': 'multipart/x-mixed-replace; boundary=myboundary',
             'Cache-Control': 'no-cache',
             'Connection': 'close',

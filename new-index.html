@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.6/rxjs.umd.min.js"-->
+<!--            integrity="sha512-r0R52UFUS1Wx7K9DKFCzPkZbmB0xVXJjc/sk9JByGAcHH2VXrj3tKBzmoYp9PgJm8xRVHlfjvDYN4mG7mhnv4w=="-->
+<!--            crossorigin="anonymous"></script>-->
+</head>
+<body>
+    <script>
+        const url = 'http://159.65.116.96:8081/1'
+        const request = new XMLHttpRequest()
+        request.onprogress = function () {
+            console.log(request.responseText.length)
+        };
+        request.open('GET', url, false)
+        request.send()
+        console.log('Go!')
+    </script>
+</body>
+</html>
