@@ -7,4 +7,4 @@ function createSubject() {
     return new rxjs.BehaviorSubject(DEFAULT_FRAME)
 }
 
-module.exports = { createSubject }
+module.exports = { createSubject, DEFAULT_FRAME }

@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.6.6/rxjs.umd.min.js"-->
-<!--            integrity="sha512-r0R52UFUS1Wx7K9DKFCzPkZbmB0xVXJjc/sk9JByGAcHH2VXrj3tKBzmoYp9PgJm8xRVHlfjvDYN4mG7mhnv4w=="-->
-<!--            crossorigin="anonymous"></script>-->
 </head>
 <body>
+    <canvas id="canvas">
+    </canvas>
     <script>
-        const url = 'http://159.65.116.96:8081/1'
-        const request = new XMLHttpRequest()
-        request.onprogress = function () {
-            console.log(request.responseText.length)
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d')
+
+        const url = 'ws://localhost:8082'
+        const socket = new WebSocket(url);
+        socket.onopen = function (event) {
+            socket.send('/1')
         };
-        request.open('GET', url, false)
-        request.send()
-        console.log('Go!')
+        socket.onmessage = function (event) {
+            console.log(event.data);
+            const img = new Image()
+            img.onload = function(){
+                ctx.drawImage(img, 0, 0, img.width, img.height, 0, 0, canvas.width, canvas.height);
+            }
+            img.src = URL.createObjectURL(event.data)
+        }
     </script>
 </body>
 </html>

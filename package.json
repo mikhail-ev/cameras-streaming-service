@@ -6,6 +6,7 @@
   "dependencies": {
     "mjpeg-server": "^0.3.0",
     "rxjs": "^6.6.3",
+    "ws": "^7.4.4",
     "zen-observable": "^0.8.15"
   },
   "devDependencies": {},

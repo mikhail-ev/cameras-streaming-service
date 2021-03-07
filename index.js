@@ -5,6 +5,7 @@ function start() {
     servers.incomingStreamServer(streamsMap).listen(8080)
     servers.outgoingStreamServer(streamsMap).listen(8081)
     servers.staticAssetsServer(streamsMap).listen(80)
+    servers.websocketServer(streamsMap).listen(8082)
 }
 
 start();

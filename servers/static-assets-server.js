@@ -2,7 +2,7 @@ const http = require('http');
 const path = require('path')
 const fs = require('fs');
 
-const index = fs.readFileSync(path.join(__dirname, '..', 'index.html')).toString()
+const index = fs.readFileSync(path.join(__dirname, '..', 'new-index.html')).toString()
 
 function staticAssetsServer(steamsMap) {
     return http.createServer((request, response) => {
