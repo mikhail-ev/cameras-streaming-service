@@ -11,7 +11,7 @@
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d')
 
-        const url = 'ws://localhost:8082'
+        const url = `ws://${window.location.hostname}:8082`
         const socket = new WebSocket(url);
         socket.onopen = function (event) {
             socket.send('/1')
