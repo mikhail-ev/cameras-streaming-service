@@ -5,6 +5,13 @@ const utils = require('../utils')
 
 function outgoingStreamServer(streamsMap) {
     return http.createServer(function(request, response) {
+        if (!utils.authenticated(request.headers.authorization)) {
+            response.writeHead(401, {
+                'WWW-Authenticate': 'Basic'
+            })
+            return response.end();
+        }
+
         if (!streamsMap[request.url]) {
             response.statusCode = 404
             return response.end()
